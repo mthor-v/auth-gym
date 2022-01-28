@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "3bf04f9e-db29-43d0-9124-eb8ab4c5e90d",
+		"name": "authApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\": 45,\r\n    \"name\": \"Nombre\",\r\n    \"last_name\": \"Apellido\",\r\n    \"email\": \"correo@mail.com\",\r\n    \"password\": \"password\",\r\n    \"birth\": \"2005-06-15\",\r\n    \"phone\": 2,\r\n    \"other_contact\": 32,\r\n    \"gender\": \"FE\",\r\n    \"role\": \"CL\",\r\n    \"active\": true,\r\n    \"payment_ok\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://auth-gym-ms.herokuapp.com/create/",
+					"protocol": "http",
+					"host": [
+						"auth-gym-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"user1@mail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://auth-gym-ms.herokuapp.com/login/",
+					"protocol": "http",
+					"host": [
+						"auth-gym-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refrescar token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYzNzM4MzA0NiwianRpIjoiNWE5OTdkODE0NTkzNDE2ODkwNzg1NWNhN2MzZGRmYjQiLCJ1c2VyX2lkIjoxLCJuYW1lIjoiVXNlciIsInJvbGUiOiJBRCIsImFjdGl2ZSI6dHJ1ZSwicGF5X29rIjp0cnVlfQ.9f8PQrpU2HkSO32v9qejQtR46vXLS6_p8EdK-VC45sY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://auth-gym-ms.herokuapp.com/refresh/",
+					"protocol": "http",
+					"host": [
+						"auth-gym-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar datos de usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MTAxNjE1LCJqdGkiOiJhOTJhMzdmMmY3NDU0MGYzODMzYTA4MzVjNDFlYWNlMiIsInVzZXJfaWQiOjYsIm5hbWUiOiJMaW5hIiwicm9sZSI6IkFEIiwiYWN0aXZlIjp0cnVlLCJwYXlfb2siOnRydWV9.34GRYf7DQcVEP3O59DvrDqKwLBXgjRv2_nYJf2oDV_g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://auth-gym-ms.herokuapp.com/account/6/",
+					"protocol": "http",
+					"host": [
+						"auth-gym-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"account",
+						"6",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar datos de usuario byDni",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzAwMjgzLCJqdGkiOiIyMjgzYWQ0ODQ4YTc0M2Y4OGUxYjNlOThhZWY3ZmJkNCIsInVzZXJfaWQiOjEsIm5hbWUiOiJVc2VyIiwicm9sZSI6IkFEIiwiYWN0aXZlIjp0cnVlLCJwYXlfb2siOnRydWV9.Frrzg4eVAa5k1B-sr-lDk86-01Vk9pCFsKU-BFddasc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://auth-gym-ms.herokuapp.com/manage/?dni=235689",
+					"protocol": "http",
+					"host": [
+						"auth-gym-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"manage",
+						""
+					],
+					"query": [
+						{
+							"key": "dni",
+							"value": "235689"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualización cuenta de usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MTAxNjE1LCJqdGkiOiJhOTJhMzdmMmY3NDU0MGYzODMzYTA4MzVjNDFlYWNlMiIsInVzZXJfaWQiOjYsIm5hbWUiOiJMaW5hIiwicm9sZSI6IkFEIiwiYWN0aXZlIjp0cnVlLCJwYXlfb2siOnRydWV9.34GRYf7DQcVEP3O59DvrDqKwLBXgjRv2_nYJf2oDV_g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\": 587469,\r\n    \"name\": \"Lina\",\r\n    \"last_name\": \"Gonzales\",\r\n    \"email\": \"lg@mail.com\",\r\n    \"password\": \"6789\",\r\n    \"birth\": \"2005-06-15\",\r\n    \"phone\": 6789123,\r\n    \"other_contact\": 963852,\r\n    \"gender\": \"FE\",\r\n    \"role\": \"AD\",\r\n    \"active\": true,\r\n    \"payment_ok\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://auth-gym-ms.herokuapp.com/manage/",
+					"protocol": "http",
+					"host": [
+						"auth-gym-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"manage",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar cuenta de usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3MzAxMzA1LCJqdGkiOiIzNWE2YjdiZWM4MWU0NGM3ODBkNzgxYmJhYWYxZjdhMCIsInVzZXJfaWQiOjcsIm5hbWUiOiJOb21icmUiLCJyb2xlIjoiQUQiLCJhY3RpdmUiOnRydWUsInBheV9vayI6dHJ1ZX0.zbX0spSy-rqjyR0AZS_CzJOWDneSg1q61lcnLmt8958",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://auth-gym-ms.herokuapp.com/manage/7/",
+					"protocol": "http",
+					"host": [
+						"auth-gym-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"manage",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "partial_update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"active\": true,\r\n    \"payment_ok\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://auth-gym-ms.herokuapp.com/status/235689/",
+					"protocol": "http",
+					"host": [
+						"auth-gym-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"status",
+						"235689",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
